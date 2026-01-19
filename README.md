@@ -14,11 +14,6 @@ Community and Professional support can be found [here](http://open-emr.org/wiki/
 
 Extensive documentation and forums can be found on the [OpenEMR website](http://open-emr.org).
 
-### Contributors
-
-This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
-<a href="graphs/contributors"><img src="https://opencollective.com/openemr/contributors.svg?width=890" /></a>
-
 
 ### Backers
 
@@ -46,4 +41,3 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ### License
 
-[GNU GPL](LICENSE)
