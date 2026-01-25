@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: openemr-mpesa
+    runtime: php
+    buildCommand: "composer install --no-dev --optimize-autoloader"
+    startCommand: "php -S 0.0.0.0:10000 -t ."
+    envVars:
+      - key: DB_HOST
+        fromSecret: db_host
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        fromSecret: db_name
+      - key: DB_USER
+        fromSecret: db_user
+      - key: DB_PASS
+        fromSecret: db_password
+      - key: MPESA_CONSUMER_KEY
+        fromSecret: mpesa_consumer_key
+      - key: MPESA_CONSUMER_SECRET
+        fromSecret: mpesa_consumer_secret
+      - key: MPESA_PASSKEY
+        fromSecret: mpesa_passkey
+      - key: MPESA_SHORTCODE
+        fromSecret: mpesa_shortcode
+      - key: MPESA_ENVIRONMENT
+        value: production
+      - key: APP_ENV
+        value: production
+
+  - type: pserv
+    name: openemr-db
+    runtime: postgres
+    envVars:
+      - key: POSTGRES_DB
+        value: openemr
+      - key: POSTGRES_USER
+        value: openemr_user
+      - key: POSTGRES_PASSWORD
+        fromSecret: db_password
