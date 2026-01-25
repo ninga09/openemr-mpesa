@@ -185,7 +185,7 @@ if (count($emr_app)) {
                         }
 
                         if (count($result) == 1) {
-                              $resvalue = $result[0]{"name"};
+                              $resvalue = $result[0]["name"];
                               echo "<input type='hidden' name='authProvider' value='" . attr($resvalue) . "' />\n";
                         }
 
@@ -196,9 +196,9 @@ if (count($emr_app)) {
                         }
 
                         if (count($result2) == 1) {
-                            $defaultLangID = $result2[0]{"lang_id"};
-                            $defaultLangName = $result2[0]{"lang_description"};
-                        } else {
+                            $defaultLangID = $result2[0]["lang_id"];
+                            $defaultLangName = $result2[0]["lang_description"];
+                        }
                             //default to english if any problems
                             $defaultLangID = 1;
                             $defaultLangName = "English";
@@ -308,7 +308,7 @@ if (count($emr_app)) {
                                 <select name="authProvider" class="form-control">
                                     <?php
                                     foreach ($result as $iter) {
-                                        echo "<option value='".attr($iter{"name"})."'>".text($iter{"name"})."</option>\n";
+                                        echo "<option value='".attr($iter["name"])."'>".text($iter["name"])."</option>\n";
                                     }
                                     ?>
                                 </select>
