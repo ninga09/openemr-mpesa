@@ -40,6 +40,12 @@
 - [x] Modified Mpesa.php to prioritize environment variables over database globals
 - [x] Created render.yaml with secure environment variable configuration
 - [x] Created mpesa_env.example with required environment variables
+- [x] Created Dockerfile for containerized deployment
+- [ ] Get M-Pesa API credentials from https://developer.safaricom.co.ke/:
+  - Create a developer account
+  - Create an app to get Consumer Key & Secret
+  - Get Lipa na M-Pesa Passkey from your Paybill/Till setup
+  - Note your Paybill/Till number as Shortcode
 - [ ] Set actual M-Pesa credentials as environment variables in Render:
   - MPESA_CONSUMER_KEY
   - MPESA_CONSUMER_SECRET
