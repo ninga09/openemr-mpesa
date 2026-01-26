@@ -3058,39 +3058,39 @@ http://www.stanford.edu/dept/itss/docs/oracle/10g/server.101/b10759/statements_1
 	// CLASS ADORecordSet_empty
 	//==============================================================================================
 
-class ADODB_Iterator_empty implements Iterator {
+	class ADODB_Iterator_empty implements Iterator {
 
-	private $rs;
+		private $rs;
 
-	function __construct($rs) {
-		$this->rs = $rs;
+		function __construct($rs) {
+			$this->rs = $rs;
+		}
+
+		function rewind() {}
+
+		function valid() {
+			return !$this->rs->EOF;
+		}
+
+		function key() {
+			return false;
+		}
+
+		function current() {
+			return false;
+		}
+
+		function next() {}
+
+		function __call($func, $params) {
+			return call_user_func_array(array($this->rs, $func), $params);
+		}
+
+		function hasMore() {
+			return false;
+		}
+
 	}
-
-	function rewind(): void {}
-
-	function valid(): bool {
-		return !$this->rs->EOF;
-	}
-
-	function key(): mixed {
-		return false;
-	}
-
-	function current(): mixed {
-		return false;
-	}
-
-	function next(): void {}
-
-	function __call($func, $params) {
-		return call_user_func_array(array($this->rs, $func), $params);
-	}
-
-	function hasMore(): bool {
-		return false;
-	}
-
-}
 
 
 	/**
@@ -3131,9 +3131,9 @@ class ADODB_Iterator_empty implements Iterator {
 
 		function Init() {}
 
-	public function getIterator(): Traversable {
-		return new ADODB_Iterator_empty($this);
-	}
+		function getIterator() {
+			return new ADODB_Iterator_empty($this);
+		}
 
 		function GetAssoc() {
 			return array();
@@ -3183,43 +3183,43 @@ class ADODB_Iterator_empty implements Iterator {
 	// CLASS ADORecordSet
 	//==============================================================================================
 
-class ADODB_Iterator implements Iterator {
+	class ADODB_Iterator implements Iterator {
 
-	private $rs;
+		private $rs;
 
-	function __construct($rs) {
-		$this->rs = $rs;
+		function __construct($rs) {
+			$this->rs = $rs;
+		}
+
+		function rewind() {
+			$this->rs->MoveFirst();
+		}
+
+		function valid() {
+			return !$this->rs->EOF;
+		}
+
+		function key() {
+			return $this->rs->_currentRow;
+		}
+
+		function current() {
+			return $this->rs->fields;
+		}
+
+		function next() {
+			$this->rs->MoveNext();
+		}
+
+		function __call($func, $params) {
+			return call_user_func_array(array($this->rs, $func), $params);
+		}
+
+		function hasMore() {
+			return !$this->rs->EOF;
+		}
+
 	}
-
-	function rewind(): void {
-		$this->rs->MoveFirst();
-	}
-
-	function valid(): bool {
-		return !$this->rs->EOF;
-	}
-
-	function key(): mixed {
-		return $this->rs->_currentRow;
-	}
-
-	function current(): mixed {
-		return $this->rs->fields;
-	}
-
-	function next(): void {
-		$this->rs->MoveNext();
-	}
-
-	function __call($func, $params) {
-		return call_user_func_array(array($this->rs, $func), $params);
-	}
-
-	function hasMore(): bool {
-		return !$this->rs->EOF;
-	}
-
-}
 
 
 	/**
