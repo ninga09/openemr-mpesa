@@ -1222,7 +1222,7 @@ while (count($flags) <= $lastEndPoint) {
 	    $bit1 = $flag & $mask1;
 	    $bit4 = $flag & $mask2;
 	    if ($bit1 != 0) {
-		$b = ord($code{$off++});
+		$b = ord($code[$off++]);
 		if ($bit4 != 0) {
 		    // Positive 8-bit
 		    $val = $b;
