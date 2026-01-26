@@ -3283,7 +3283,7 @@ class ADODB_Iterator implements Iterator {
 		$this->Close();
 	}
 
-	function getIterator() {
+	public function getIterator(): Traversable {
 		return new ADODB_Iterator($this);
 	}
 
