@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     nodejs \
     npm \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip ldap soap
+    && docker-php-ext-install pdo_mysql mysqli mbstring exif pcntl bcmath gd zip ldap soap
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
