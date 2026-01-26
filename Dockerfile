@@ -7,7 +7,12 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     libonig-dev \
-    && docker-php-ext-install pdo_pgsql mbstring \
+    libldap2-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libxml2-dev \
+    && docker-php-ext-install pdo_pgsql mbstring ldap gd soap \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
