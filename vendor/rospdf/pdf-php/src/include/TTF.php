@@ -1054,7 +1054,7 @@ while (count($flags) <= $lastEndPoint) {
     }
 
     private static function setByte(&$b, &$off, $val) {
-	$b{$off++} = chr($val);
+	$b[$off++] = chr($val);
     }
 
     private static function getUshort($b, &$off) {
@@ -1064,8 +1064,8 @@ while (count($flags) <= $lastEndPoint) {
     }
 
     private static function setUshort(&$b, &$off, $val) {
-	$b{$off++} = chr($val / 256);
-	$b{$off++} = chr($val % 256);
+	$b[$off++] = chr($val / 256);
+	$b[$off++] = chr($val % 256);
     }
 
     private static function getShort($b, &$off) {
@@ -1074,8 +1074,8 @@ while (count($flags) <= $lastEndPoint) {
     }
 
     private static function setShort(&$b, &$off, $val) {
-	$b{$off++} = chr(($val >> 8) & 0xff);
-	$b{$off++} = chr($val & 0xff);
+	$b[$off++] = chr(($val >> 8) & 0xff);
+	$b[$off++] = chr($val & 0xff);
     }
 
     private static function getUlong($b, &$off) {
@@ -1121,7 +1121,7 @@ while (count($flags) <= $lastEndPoint) {
     }
     
     static function setFixed(&$b, &$off, $val) {
-	if ($val{0} == '-') {
+	if ($val[0] == '-') {
 	    $sign = -1;
 	    $val = substr($val, 1);
 	} else {
@@ -1136,10 +1136,10 @@ while (count($flags) <= $lastEndPoint) {
 	}
 	$mantissa *= $sign;
 
-	$b{$off++} = chr(($mantissa >> 8) & 0xff);
-	$b{$off++} = chr(($mantissa >> 0) & 0xff);
-	$b{$off++} = chr(($fraction >> 8) & 0xff);
-	$b{$off++} = chr(($fraction >> 0) & 0xff);
+	$b[$off++] = chr(($mantissa >> 8) & 0xff);
+	$b[$off++] = chr(($mantissa >> 0) & 0xff);
+	$b[$off++] = chr(($fraction >> 8) & 0xff);
+	$b[$off++] = chr(($fraction >> 0) & 0xff);
     }
 
     private static function getFword($b, &$off) {
@@ -1189,7 +1189,7 @@ while (count($flags) <= $lastEndPoint) {
     private static function setRaw(&$b, &$off, $val, $num) {
 	$i = 0;
 	while ($i < $num) {
-	    $b{$off++} = $val{$i++};
+	    $b[$off++] = $val[$i++];
 	}
     }
 
