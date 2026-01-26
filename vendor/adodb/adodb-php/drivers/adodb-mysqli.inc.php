@@ -28,6 +28,7 @@ if (! defined("_ADODB_MYSQLI_LAYER")) {
  // PHP5 compat...
  if (! defined("MYSQLI_BINARY_FLAG"))  define("MYSQLI_BINARY_FLAG", 128);
  if (!defined('MYSQLI_READ_DEFAULT_GROUP')) define('MYSQLI_READ_DEFAULT_GROUP',1);
+ if (!defined('MYSQLI_OPT_LOCAL_INFILE')) define('MYSQLI_OPT_LOCAL_INFILE',8);
 
  // disable adodb extension - currently incompatible.
  global $ADODB_EXTENSION; $ADODB_EXTENSION = false;
