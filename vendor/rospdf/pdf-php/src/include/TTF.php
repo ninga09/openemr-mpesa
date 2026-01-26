@@ -1088,10 +1088,10 @@ while (count($flags) <= $lastEndPoint) {
     }
 
     private static function setUlong(&$b, &$off, $val) {
-	$b{$off++} = chr(bcmod(bcdiv($val, '16777216', 0), '256'));
-	$b{$off++} = chr(bcmod(bcdiv($val, '65536', 0), '256'));
-	$b{$off++} = chr(bcmod(bcdiv($val, '256', 0), '256'));
-	$b{$off++} = chr(bcmod($val, '256'));
+	$b[$off++] = chr(bcmod(bcdiv($val, '16777216', 0), '256'));
+	$b[$off++] = chr(bcmod(bcdiv($val, '65536', 0), '256'));
+	$b[$off++] = chr(bcmod(bcdiv($val, '256', 0), '256'));
+	$b[$off++] = chr(bcmod($val, '256'));
     }
 
     static function getLong($b, &$off) {
