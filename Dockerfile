@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     postgresql-client \
     git \
     curl \
+    libonig-dev \
     && docker-php-ext-install pdo_pgsql mbstring \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
