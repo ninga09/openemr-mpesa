@@ -900,10 +900,10 @@ class TTF {
 
 	    // Collect the flags
 	    $flags = array();
-	    while (count($flags) <= $lastEndPoint) {
-		$flag = ord($description{$off}); $off++;
+while (count($flags) <= $lastEndPoint) {
+	    $flag = ord($description[$off]); $off++;
 		if (($flag & 0x08) != 0) {
-		    $num = ord($description{$off}) + 1; $off++;
+		    $num = ord($description[$off]) + 1; $off++;
 		} else {
 		    $num = 1;
 		}
@@ -1159,8 +1159,8 @@ class TTF {
     }
 
     private static function getF2dot14($b, &$off) {
-	$val1 = ord($b{$off});
-	$val2 = ord($b{$off + 1});
+	$val1 = ord($b[$off]);
+	$val2 = ord($b[$off + 1]);
 	$val = 256 * $val1 + $val2;
 
 	$mantissa = ($val >> 14) & 0x03;
@@ -1236,8 +1236,8 @@ class TTF {
 		    $val = 0;
 		} else {
 		    // Signed 16-bit
-		    $b1 = ord($code{$off++});
-		    $b2 = ord($code{$off++});
+		    $b1 = ord($code[$off++]);
+		    $b2 = ord($code[$off++]);
 		    $b = 256 * $b1 + $b2;
 		    if ($b >= 32768)
 			$b -= 65536;
