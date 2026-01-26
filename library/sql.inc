@@ -22,15 +22,14 @@
 
 require_once(dirname(__FILE__) . "/sqlconf.php");
 require_once(dirname(__FILE__) . "/../vendor/adodb/adodb-php/adodb.inc.php");
-require_once(dirname(__FILE__) . "/../vendor/adodb/adodb-php/drivers/adodb-mysqli.inc.php");
+require_once(dirname(__FILE__) . "/../vendor/adodb/adodb-php/drivers/adodb-postgres64.inc.php");
 require_once(dirname(__FILE__) . "/log.inc");
-require_once(dirname(__FILE__) . "/ADODB_mysqli_log.php");
 
 if (!defined('ADODB_FETCH_ASSOC')) {
     define('ADODB_FETCH_ASSOC', 2);
 }
 
-$database = NewADOConnection("mysqli_log"); // Use the subclassed driver which logs execute events
+$database = NewADOConnection("postgres64"); // Use PostgreSQL driver
 // Below optionFlags flag is telling the mysql connection to ensure local_infile setting,
 // which is needed to import data in the Administration->Other->External Data Loads feature.
 // (Note the MYSQLI_READ_DEFAULT_GROUP is just to keep the current setting hard-coded in adodb)
@@ -74,7 +73,7 @@ if ($GLOBALS['debug_ssl_mysql_connection']) {
 if (!$GLOBALS['dbh']) {
   //try to be more helpful
     if ($host == "localhost") {
-        echo "Check that mysqld is running.<p>";
+        echo "Check that PostgreSQL is running.<p>";
     } else {
         echo "Check that you can ping the server " . text($host) . ".<p>";
     }//if local

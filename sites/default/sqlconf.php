@@ -2,10 +2,10 @@
 //  OpenEMR
 //  MySQL Config
 
-$host = 'localhost';
-$port = '3306';
-$login = 'openemr';
-$pass = 'escargot';
+$host = 'openemr-db';
+$port = '5432';
+$login = 'openemr_user';
+$pass = 'openemr';
 $dbase = 'openemr';
 
 
